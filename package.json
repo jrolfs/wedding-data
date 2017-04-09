@@ -1,0 +1,9 @@
+{
+  "name": "wedding-data",
+  "version": "0.0.1",
+  "description": "Consolidate data for our wedding from various sources",
+  "main": "index.js",
+  "repository": "git@gitlab.rolfs.io:jrolfs/wedding-data.git",
+  "author": "Jamie Rolfs <jamie.rolfs@gmail.com>",
+  "license": "MIT"
+}
