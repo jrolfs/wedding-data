@@ -5,5 +5,8 @@
   "main": "index.js",
   "repository": "git@gitlab.rolfs.io:jrolfs/wedding-data.git",
   "author": "Jamie Rolfs <jamie.rolfs@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "babel-core": "^6.24.1"
+  }
 }
