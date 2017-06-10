@@ -1,1 +1,3 @@
 client_id.json filter=git-crypt diff=git-crypt
+cookies.json filter=git-crypt diff=git-crypt
+
