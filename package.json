@@ -6,7 +6,27 @@
   "repository": "git@gitlab.rolfs.io:jrolfs/wedding-data.git",
   "author": "Jamie Rolfs <jamie.rolfs@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "watch:server": "scripty"
+  },
   "dependencies": {
-    "babel-core": "^6.24.1"
+    "csv": "^1.1.1",
+    "google-spreadsheet": "^2.0.3",
+    "koa": "^2.2.0",
+    "koa-router": "^7.1.1",
+    "request-promise-native": "^1.0.4"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-eslint": "^7.2.3",
+    "babel-polyfill": "^6.23.0",
+    "babel-preset-env": "^1.4.0",
+    "babel-watch": "^2.0.6",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^5.0.1",
+    "eslint-plugin-react": "^7.0.1",
+    "scripty": "^1.7.1"
   }
 }
