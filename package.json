@@ -7,6 +7,8 @@
   "author": "Jamie Rolfs <jamie.rolfs@gmail.com>",
   "license": "MIT",
   "scripts": {
+    "start": "node build/server.js",
+    "build:server": "webpack --config src/server/webpack.config.js",
     "watch:server": "scripty"
   },
   "dependencies": {
@@ -22,6 +24,7 @@
   "devDependencies": {
     "babel-cli": "^6.24.1",
     "babel-eslint": "^7.2.3",
+    "babel-loader": "^7.0.0",
     "babel-plugin-transform-object-rest-spread": "^6.23.0",
     "babel-polyfill": "^6.23.0",
     "babel-preset-env": "^1.4.0",
@@ -31,6 +34,7 @@
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^5.0.1",
     "eslint-plugin-react": "^7.0.1",
-    "scripty": "^1.7.1"
+    "scripty": "^1.7.1",
+    "webpack": "^2.6.1"
   }
 }
