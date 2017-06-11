@@ -1,3 +1,5 @@
+import _ from 'lodash';
+import randomColor from 'randomcolor';
 import Koa from 'koa';
 import Router from 'koa-router';
 
@@ -29,6 +31,7 @@ router.get('/rsvps', (ctx) => {
   return appy
     .rsvps()
     .then((data) => {
+      const colors = randomColor({ count: _.max(_.map(data, RSVP_KEYS.group)) });
 
       const body = data.filter(rsvp => rsvp['RSVP Status'] === 'Y').map((rsvp) => {
         const mealIcons = [];
@@ -53,6 +56,7 @@ router.get('/rsvps', (ctx) => {
           if (dietaryRestrictions.match(new RegExp(meal, 'i'))) mealIcons.push(icon);
         }
 
+        rsvpResponse.groupColor = colors[rsvpResponse.group].replace('#', '');
         rsvpResponse.mealIcons = mealIcons.join('');
 
         return rsvpResponse;
