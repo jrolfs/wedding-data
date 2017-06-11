@@ -29,20 +29,37 @@ router.get('/rsvps', (ctx) => {
   return appy
     .rsvps()
     .then((data) => {
-      const sum = data.reduce((acc, row) => {
-        const confirmed = row[4] === 'Y';
-        const plus = Number(row[14]);
 
-        if (!confirmed) {
-          return acc;
+      const body = data.filter(rsvp => rsvp['RSVP Status'] === 'Y').map((rsvp) => {
+        const mealIcons = [];
+        const rsvpResponse = {};
+
+        for (const [key, value] of Object.entries(RSVP_KEYS)) {
+          rsvpResponse[key] = rsvp[value];
         }
 
-        return acc + plus + 1;
-      }, 0);
+        const { dietaryRestrictions } = rsvpResponse;
 
-      console.info(sum); // eslint-disable-line no-console
+        if (dietaryRestrictions.match(/sharing/i)) {
+          mealIcons.push(...Object.values(MEAL_ICONS));
+        } else {
+          mealIcons.push(MEAL_ICONS[rsvpResponse.meal]);
+        }
 
-      ctx.body = data;
+        if (dietaryRestrictions.match(/dairy/i)) mealIcons.push('🥛');
+        if (dietaryRestrictions.match(/gluten/i)) mealIcons.push('🌾');
+
+        for (const [meal, icon] of Object.entries(MEAL_ICONS)) {
+          if (dietaryRestrictions.match(new RegExp(meal, 'i'))) mealIcons.push(icon);
+        }
+
+        rsvpResponse.mealIcons = mealIcons.join('');
+
+        return rsvpResponse;
+      });
+
+
+      ctx.body = body;
     })
     .catch(error => ctx.throw(500, error));
 });
