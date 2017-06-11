@@ -2,10 +2,11 @@ import request from 'request-promise-native';
 import csv from 'csv';
 import config from 'config';
 
-const { uri, cookie } = config.get('appy');
+const { uris: { export: exportURI }, cookie } = config.get('appy');
+const headers = { Cookie: cookie };
 
 function rsvps() {
-  return request({ uri, headers: { Cookie: cookie } }).then((response) => {
+  return request({ uri: exportURI, headers }).then((response) => {
     return new Promise((resolve, reject) => {
       csv.parse(response, { auto_parse: true }, (error, data) => {
         if (error) return reject(error);
