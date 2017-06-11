@@ -8,7 +8,7 @@ const headers = { Cookie: cookie };
 function rsvps() {
   return request({ uri: exportURI, headers }).then((response) => {
     return new Promise((resolve, reject) => {
-      csv.parse(response, { auto_parse: true }, (error, data) => {
+      csv.parse(response, { auto_parse: true, columns: true }, (error, data) => {
         if (error) return reject(error);
 
         return resolve(data);
