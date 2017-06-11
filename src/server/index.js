@@ -10,6 +10,21 @@ router.get('/', (ctx) => {
   ctx.body = { hello: 'world' };
 });
 
+const RSVP_KEYS = Object.freeze({
+  firstName: 'First Name',
+  lastName: 'Last Name',
+  email: 'Email',
+  dietaryRestrictions: 'Dietary restrictions',
+  meal: 'Meal',
+  group: 'Group'
+});
+
+const MEAL_ICONS = Object.freeze({
+  Steak: '🐮',
+  Vegetarian: '🍆',
+  Chicken: '🐔'
+});
+
 router.get('/rsvps', (ctx) => {
   return appy
     .rsvps()
