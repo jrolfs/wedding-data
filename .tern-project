@@ -1,10 +1,6 @@
 {
   "loadEagerly": [
-    "components",
-    "actions",
-    "reducers",
-    "pages",
-    "api"
+    "src"
   ],
   "plugins": {
     "es_modules": {},
